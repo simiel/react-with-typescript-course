@@ -2,9 +2,16 @@ const id = "YOUR_CLIENT_ID";
 const sec = "YOUR_SECRET_ID";
 const params = `?client_id=${id}&client_secret=${sec}`;
 
-interface User {
+export interface User {
   id: string;
   followers: number;
+  name: string;
+  location: string | null;
+  company: string | null;
+  avatar_url: string;
+  html_url: string;
+  following: number;
+  login: string;
 }
 
 function getErrorMsg(message: string, username: string) {
@@ -73,8 +80,8 @@ function getUserData(player: string): Promise<Player> {
   );
 }
 
-interface Player {
-  profile: unknown;
+export interface Player {
+  profile: User;
   score: number;
 }
 
