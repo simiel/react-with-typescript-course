@@ -41,8 +41,16 @@ function getRepos(username: string): Promise<Repo[]> {
     });
 }
 
-interface Repo {
+export interface Repo {
   stargazers_count: number;
+  name: string;
+  owner: {
+    login: string;
+    avatar_url: string;
+  };
+  html_url: string;
+  forks: number;
+  open_issues: number;
 }
 
 function getStarCount(repos: Repo[]) {
